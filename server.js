@@ -11,10 +11,8 @@ require("dotenv").config();
 const app = express();
 const port = 8000;
 
-console.log(process.env.ATLASPW);
-
 mongoose.connect(
-  `mongodb+srv://dbjosh:${process.env.ATLASPW}@cluster0.sfsbw.mongodb.net/test?retryWrites=true&w=majority`,
+  `mongodb+srv://dbjosh:${process.env.ZZPW}@cluster0.sfsbw.mongodb.net/test?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useFindAndModify: false,
