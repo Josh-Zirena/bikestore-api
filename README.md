@@ -1,4 +1,4 @@
-Before starting the server please create a .env variable for the MongoDB Atlas PW to ensure successful connection to the database.
+Before starting the server please create an .env file for the MongoDB password to ensure successful connection to the database. The expected variable name for the password should be ZZPW.
 
 To start the server enter in the command line `npm run start`
 
