@@ -1,0 +1,27 @@
+{
+  "name": "joot",
+  "version": "1.0.0",
+  "description": "This is the beginning of the joot bike project.\r test.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Josh-Zirena/joot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Josh-Zirena/joot/issues"
+  },
+  "homepage": "https://github.com/Josh-Zirena/joot#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.6",
+    "mongoose": "^5.12.4",
+    "swagger-jsdoc": "^7.0.0-rc.6",
+    "swagger-ui-express": "^4.1.6"
+  }
+}

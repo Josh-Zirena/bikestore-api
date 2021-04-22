@@ -1,0 +1,559 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Bike Shop API",
+    "description": "A simple API to write OpenAPI Specification"
+  },
+  "schemes": ["http"],
+  "host": "localhost:8000",
+  "basePath": "/",
+  "paths": {
+    "/customers": {
+      "get": {
+        "tags": [{ "name": "Customers" }],
+        "summary": "Gets all customers",
+        "description": "Returns a list containing all customers and their contact information.",
+        "responses": {
+          "200": {
+            "description": "A list of customers.",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "phoneNumber": { "type": "string" },
+                  "email": { "type": "string" },
+                  "createDate": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Enter new customer",
+        "tags": [{ "name": "Customers" }],
+        "description": "Create a new customer.",
+        "parameters": [
+          {
+            "name": "firstName",
+            "description": "the first name",
+            "required": "true",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lastName",
+            "description": "the last name",
+            "required": "true",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "description": "customer's phone number",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "email",
+            "description": "customer's email",
+            "required": "true",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create a new customer.",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "phoneNumber": { "type": "string" },
+                  "email": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers/{id}": {
+      "get": {
+        "summary": "Gets one customer",
+        "description": "Returns an object containing the customer queried.",
+        "tags": [{ "name": "Customers" }],
+        "parameters": [
+          {
+            "in": "id",
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return one customer",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "phoneNumber": { "type": "string" },
+                  "email": { "type": "string" },
+                  "createDate": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Updates one customer",
+        "description": "Returns an object containing the updated fields.",
+        "tags": [{ "name": "Customers" }],
+        "parameters": [
+          {
+            "in": "id",
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return one customer",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "phoneNumber": { "type": "string" },
+                  "email": { "type": "string" },
+                  "createDate": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes one customer",
+        "description": "Returns an object containing the updated fields.",
+        "tags": [{ "name": "Customers" }],
+        "parameters": [
+          {
+            "in": "id",
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "delete one customer",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "phoneNumber": { "type": "string" },
+                  "email": { "type": "string" },
+                  "createDate": { "type": "string", "format": "date" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory": {
+      "get": {
+        "tags": [{ "name": "Inventory" }],
+        "summary": "Gets all inventory",
+        "description": "Returns a list containing all inventory.",
+        "responses": {
+          "200": {
+            "description": "A list of inventory.",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "itemName": { "type": "string" },
+                  "SKU": { "type": "number" },
+                  "numberOfItems": { "type": "number" },
+                  "category": { "type": "string", "enum": ["parts"] }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Enter new inventory",
+        "tags": [{ "name": "Inventory" }],
+        "description": "Create new inventory.",
+        "parameters": [
+          {
+            "name": "itemName",
+            "description": "product name",
+            "required": "true",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SKU",
+            "description": "product SKU",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "numberOfItems",
+            "description": "quantity of product",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "category",
+            "description": "product category",
+            "required": "true",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create a new customer.",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "phoneNumber": { "type": "string" },
+                  "email": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory/{id}": {
+      "get": {
+        "summary": "Gets one item in inventory",
+        "description": "Returns an object containing item queried.",
+        "tags": [{ "name": "Inventory" }],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return one item",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "itemName": { "type": "string" },
+                  "SKU": { "type": "number" },
+                  "numberOfItems": { "type": "number" },
+                  "category": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Updates one item",
+        "description": "Returns an item containing the updated fields.",
+        "tags": [{ "name": "Inventory" }],
+        "parameters": [
+          {
+            "in": "id",
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return one item",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "itemName": { "type": "string" },
+                  "SKU": { "type": "number" },
+                  "numberOfItems": { "type": "number" },
+                  "category": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes one item",
+        "description": "Returns an object containing the updated fields.",
+        "tags": [{ "name": "Inventory" }],
+        "parameters": [
+          {
+            "in": "id",
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "delete one item",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "itemName": { "type": "string" },
+                  "SKU": { "type": "number" },
+                  "numberOfItems": { "type": "number" },
+                  "category": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repairs": {
+      "get": {
+        "tags": [{ "name": "Repairs" }],
+        "summary": "Gets all orders for repairs.",
+        "description": "Returns a list containing all repairs.",
+        "responses": {
+          "200": {
+            "description": "A list of all repairs.",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "customerNumber": { "type": "string" },
+                  "customerRepairNotes": { "type": "string" },
+                  "bikeSKU": { "type": "number" },
+                  "repairStatus": {
+                    "type": "string",
+                    "enum": ["not started", "in progress", "completed"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Enter new repair",
+        "tags": [{ "name": "Repairs" }],
+        "description": "Create new repair order.",
+        "parameters": [
+          {
+            "name": "customerNumber",
+            "description": "customer's number",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "customerRepairNotes",
+            "description": "customer repair notes",
+            "required": "true",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bikeSKU",
+            "description": "bike SKU number",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "repairStatus",
+            "description": "repair status",
+            "required": "true",
+            "items": {
+              "type": "string",
+              "enum": ["not started", "in progress", "completed"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Create a new repair order.",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "customerNumber": { "type": "string" },
+                  "customerRepairNotes": { "type": "string" },
+                  "bikeSKU": { "type": "number" },
+                  "repairStatus": {
+                    "type": "string",
+                    "enum": ["not started", "in progress", "completed"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/repairs/{id}": {
+      "get": {
+        "summary": "Gets one repair order",
+        "description": "Returns an object containing order queried.",
+        "tags": [{ "name": "Repairs" }],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return one order",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "customerNumber": { "type": "string" },
+                  "customerRepairNotes": { "type": "string" },
+                  "bikeSKU": { "type": "number" },
+                  "repairStatus": {
+                    "type": "string",
+                    "enum": ["not started", "in progress", "completed"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Updates one order",
+        "description": "Returns an order containing the updated fields.",
+        "tags": [{ "name": "Repairs" }],
+        "parameters": [
+          {
+            "in": "id",
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return one item",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "customerNumber": { "type": "string" },
+                  "customerRepairNotes": { "type": "string" },
+                  "bikeSKU": { "type": "number" },
+                  "repairStatus": {
+                    "type": "string",
+                    "enum": ["not started", "in progress", "completed"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes one repair order",
+        "description": "Deletes the specified repair order",
+        "tags": [{ "name": "Repairs" }],
+        "parameters": [
+          {
+            "in": "id",
+            "name": "id",
+            "description": "an object id",
+            "required": "true",
+            "items": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "delete one repair order",
+            "schema": {
+              "type": "object",
+              "items": {
+                "properties": {
+                  "customerNumber": { "type": "string" },
+                  "customerRepairNotes": { "type": "string" },
+                  "bikeSKU": { "type": "number" },
+                  "repairStatus": {
+                    "type": "string",
+                    "enum": ["not started", "in progress", "completed"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
